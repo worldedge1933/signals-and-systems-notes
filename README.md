@@ -1,0 +1,1 @@
+这是一个使用 Typst 编写的《Signals and Systems》课程笔记仓库，内容基于米兰理工大学（Politecnico di Milano）2026 Spring 学期的同名课程。该笔记为准备考试而作，因此其内容可能不够详尽或系统，例如省略了课程的部分章节。
