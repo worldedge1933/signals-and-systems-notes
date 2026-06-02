@@ -19,7 +19,7 @@
 
   #v(0.8em)
   #set text(size: 11pt)
-  #align(center)[作者：#link("https://github.com/worldedge1933")[\@worldedge1933]]
+  #align(center)[作者：#link("https://github.com/worldedge1933/signals-and-systems-notes")[\@worldedge1933]]
 
   #v(0.6em)
   #align(center)[2026-01-03]
