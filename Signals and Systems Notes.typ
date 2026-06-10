@@ -22,7 +22,7 @@
   #align(center)[作者：#link("https://github.com/worldedge1933/signals-and-systems-notes")[\@worldedge1933]]
 
   #v(0.6em)
-  #align(center)[2026-01-03]
+  #align(center)[2026-06-10]
 ]
 
 
@@ -131,7 +131,7 @@ $[delta(t)]^2$, $delta(t^2)$ 都是无意义的
 
 == 3.1 System described by differential equations
 
-线性时不变系统一定可以写成线性常微分方程形式
+线性时不变（linear time-invariant, LTI）系统往往可以写成线性（linear）常微分方程（ordinary differential equation, ODE）形式
 
 $
     & d^n y(t) / d t^n + a_(n-1) d^(n-1) y(t) / d t^(n-1) + dots + a_1 d y(t) / d t + a_0 y(t) \
@@ -151,7 +151,7 @@ $
   Q(D) y(t) = P(D) x(t)
 $
 
-== 3.2 线性常微分方程的解
+== 3.2 线性（linear）常微分方程（ordinary differential equation, ODE）的解
 
 解通常由两部分组成，从数学角度有：
 
@@ -176,10 +176,10 @@ $y_"ZSR" (t)$ 是 zero-state response，两种视角本质是相同的。
 为求解齐次方程，令 $x(t) = 0$，得齐次方程
 
 $
-  (D^n + a_(n-1) D^(n-1) + dots + a_1 D + a_0) y_"ZIR"(t) = 0
+  (D^n + a_(n-1) D^(n-1) + dots + a_1 D + a_0) y_"ZIR" (t) = 0
 $
 
-令 $y(t) = C e^(lambda t)$，代入上式化简得特征方程
+令 $y(t) = C e^(lambda t)$，代入上式化简得特征方程（characteristic equation）
 
 $
   lambda^n + a_(n-1) lambda^(n-1) + dots + a_1 lambda + a_0 = 0
@@ -201,13 +201,13 @@ $
 
 仍需要来自条件的 $n$ 个等式求解 $C_n$
 
-$Q(lambda)$：特征方程
+$Q(lambda)$：特征方程（characteristic equation）
 
-$lambda_k$：特征根，自然频率
+$lambda_k$：特征根（characteristic root），自然频率（natural frequency）
 
-$e^(lambda_k t)$：特征模态、自然模态，决定系统的表现
+$e^(lambda_k t)$：特征模态（characteristic mode）、自然模态（natural mode），决定系统的表现
 
-== 3.4 特征根重根
+== 3.4 特征根（characteristic root）重根
 
 如果某个根是 $r$ 重根，例如
 
@@ -229,15 +229,15 @@ $
   = & (C_1 + C_2 t + dots + C_r t^(r-1)) e^(lambda t) + C_(r+1) e^(lambda_(r+1) t) + dots + C_n e^(lambda_n t)
 $
 
-== 3.5 复特征根
+== 3.5 复特征根（characteristic root）
 
 对于实系统，复数根必定以共轭的方式成对出现
 
 == 3.6 Zero-State Response
 
-ZSR 可看做 $x(t)$ 与系统冲激响应函数的卷积。
+ZSR 可看做 $x(t)$ 与系统冲激响应函数（impulse response）的卷积（convolution）。
 
-== 3.7 求解系统函数 $h(t)$
+== 3.7 求解系统函数（system function） $h(t)$
 
 一般系统方程有
 
@@ -247,17 +247,17 @@ $
 
 $n$ 是 $y$ 的阶，$m$ 是 $x$ 的阶，$n$ 同时也是系统的阶
 
-若 $m > n$，系统非因果
+若 $m > n$，系统非因果（noncausal）
 
-系统函数有
+系统函数（system function）有
 
 $
   h(t) = [P(D) y_h (t)] u(t)
 $
 
-$u(t)$ 是单位阶梯函数
+$u(t)$ 是单位阶梯函数（unit step function）
 
-$y_h (t)$ 是特征模态的线性组合
+$y_h (t)$ 是特征模态（characteristic mode）的线性（linear）组合
 
 $
   y_h (t) = sum_(k=1)^n A_k e^(lambda_k t)
@@ -269,7 +269,7 @@ $
   y_h^(n-1)(0) = 1, quad y_h (0) = y_h^' (0) = y_h^'' (0) = dots = y_h^(n-2) (0) = 0
 $
 
-== 3.8 卷积的性质（部分）
+== 3.8 卷积（convolution）的性质（部分）
 
 1. if, $x(t) = x_1(t) * x_2(t)$
 
@@ -283,7 +283,7 @@ $
   "total response" = sum_(k=1)^n C_k e^(lambda_k t) + x(t) * h(t)
 $
 
-#note[有重根时零输入响应形式还要改变]
+#note[有重根时零输入（input）响应形式还要改变]
 
 == 3.10 LTIC 对正弦的响应
 
@@ -330,7 +330,7 @@ $
   = & (b_m D^m + b_(m-1) D^(m-1) + dots + b_1 D + b_0) x(t)
 $
 
-不妨令输入为 $x(t) = e^(s t)$，代入 3.11 中的结果，得到
+不妨令输入（input）为 $x(t) = e^(s t)$，代入 3.11 中的结果，得到
 
 $
     & (s^n + a_(n-1) s^(n-1) + dots + a_1 s + a_0) H(s) e^(s t) \
@@ -407,9 +407,9 @@ $
   c = 1 / E_x integral f(t) x^*(t) dif t
 $
 
-== 4.2 正交性
+== 4.2 正交（orthogonal）性
 
-如果有 $integral x(t) y^*(t) = 0$，则称这两个信号是正交的。
+如果有 $integral x(t) y^*(t) = 0$，则称这两个信号是正交（orthogonal）的。
 
 并有：
 
@@ -443,9 +443,9 @@ $
   psi_"fg" (t) eq.delta f(t) * g^*(-t)
 $
 
-== 4.5 正交基变换与广义傅里叶级数
+== 4.5 正交基（orthogonal basis）变换与广义傅里叶级数（generalized Fourier series）
 
-假设我们有 $N$ 个两两正交的信号 $x_n (t)$，用它们去近似 $f(t)$
+假设我们有 $N$ 个两两正交（orthogonal）的信号 $x_n (t)$，用它们去近似 $f(t)$
 
 $
   f(t) approx c_1 x_1(t) + dots + c_N x_N(t) = sum_(n=1)^N c_n x_n(t)
@@ -463,7 +463,7 @@ $
   c_n = 1 / E_n integral_(-infinity)^infinity f(t) x_n (t) dif t
 $
 
-由正交性有
+由正交（orthogonal）性有
 
 $
   E_e = E_f - sum_(n=1)^N c_n^2 E_n
@@ -477,7 +477,7 @@ $
 
 则称 ${x_n (t)}$ 是一组完备基
 
-且这种方式被称为广义傅里叶级数
+且这种方式被称为广义傅里叶级数（generalized Fourier series）
 
 这里的相等是 $L_2$ 范式上的相同，可以接受有限个点上不同
 
@@ -493,7 +493,7 @@ $
 
 == 4.6 三角 Fourier 级数
 
-已知以下一组正交基
+已知以下一组正交基（orthogonal basis）
 
 $
   { & 1, cos omega_0 t, cos 2 omega_0 t, dots, cos n omega_0 t, dots; \
@@ -507,13 +507,13 @@ $
        = & a_0 + sum_(n=1)^infinity sqrt(a_n^2 + b_n^2) cos(n omega_0 t + tan^(-1)(- b_n / a_n))
 $
 
-注意，这组基只能表示对应周期的周期函数，因为其正交性只在完整周期上成立，无法扩展到 $(-infinity, +infinity)$，相对地，$e^(j omega t)$ 的正交性是可以推广到 $(-infinity, +infinity)$ 的
+注意，这组基只能表示对应周期的周期函数，因为其正交（orthogonal）性只在完整周期上成立，无法扩展到 $(-infinity, +infinity)$，相对地，$e^(j omega t)$ 的正交（orthogonal）性是可以推广到 $(-infinity, +infinity)$ 的
 
 有限区间也可用，因为可以周期延拓成周期函数
 
 == 4.7 Fourier series
 
-正交基：${e^(j n omega_0 t)}$，$n = 0, plus.minus 1, plus.minus 2, dots$
+正交基（orthogonal basis）：${e^(j n omega_0 t)}$，$n = 0, plus.minus 1, plus.minus 2, dots$
 
 $
   f(t) = sum_(n=-infinity)^infinity D_n e^(j n omega_0 t)
@@ -574,7 +574,7 @@ $
 
 Dirichlet 条件
 
-弱：绝对可积。保证存在，但不保证正逆变换后一致
+弱：绝对可积。保证存在，但不保证正逆变换（inverse transform）后一致
 
 强：极值和不连续点的个数有限
 
@@ -598,7 +598,7 @@ $
 
 但弱条件变成充分不必要条件
 
-== 5.3 傅里叶变换的性质（部分）
+== 5.3 傅里叶变换（Fourier transform）的性质（部分）
 
 1. Scaling
 
@@ -606,7 +606,7 @@ $
   f(a t) <=> 1 / abs(a) F(omega / a)
 $
 
-2. Time and frequency inversion
+2. Time reversal
 
 $
   f(-t) <=> F(-omega)
@@ -660,7 +660,7 @@ $
 
 == 5.4 Ideal filter
 
-设计一个理想滤波器，可以先设计其幅度响应，然后再整体乘上一个延时相位响应因子
+设计一个理想滤波器（filter），可以先设计其幅度响应，然后再整体乘上一个延时相位响应因子
 
 如一个低通滤波
 
@@ -680,7 +680,7 @@ $
   h(t) = W / pi sinc[W (t - t_d)]
 $
 
-不难注意到，该时域响应是非因果，IIR，因此在使用时我们需要截断成因果 FIR。
+不难注意到，该时域响应是非因果（noncausal），IIR，因此在使用时我们需要截断成因果（causal） FIR。
 
 截断意味着丢弃信息。自然我们希望丢弃的值都比较接近 0。这也是为什么我们需要人为引入时延，把时域的峰值从原点移开。
 
@@ -690,25 +690,25 @@ $
   E_f = integral_(-infinity)^infinity |f(t)|^2 dif t = 1 / (2 pi) integral_(-infinity)^infinity |F(omega)|^2 dif omega
 $
 
-== 5.6 自相关函数与傅里叶变换
+== 5.6 自相关函数（autocorrelation function）与傅里叶变换（Fourier transform）
 
-自相关函数有
+自相关函数（autocorrelation function）有
 
 $
   psi_f(t) = integral_(-infinity)^infinity f(tau) f^*(tau - t) dif tau = f(t) * f^*(-t)
 $
 
-其傅里叶变换有
+其傅里叶变换（Fourier transform）有
 
 $
   cal(F) {psi_f(omega)} = F(omega) dot F^*(omega) = |F(omega)|^2
 $
 
-即一个信号的自相关函数的傅里叶变换是其功率谱
+即一个信号的自相关函数（autocorrelation function）的傅里叶变换（Fourier transform）是其功率谱（power spectrum）
 
 = Chapter 6: Laplace transform
 
-傅里叶变换对无穷能量信号或不稳定系统不适用。为了解决这一问题，我们将信号基底扩展为 $e^(s t)$，其中 $s = sigma + j omega$，得到 Laplace 变换
+傅里叶变换（Fourier transform）对无穷能量信号或不稳定（unstable）系统不适用。为了解决这一问题，我们将信号基底扩展为 $e^(s t)$，其中 $s = sigma + j omega$，得到 Laplace 变换
 
 == 6.1 Laplace 变换公式
 
@@ -720,7 +720,7 @@ $
   f(t)= cal(L)^(-1) {F(s)} = 1 / (2 pi j) integral_(c - j infinity)^(c + j infinity) F(s) e^(s t) dif s
 $
 
-#note[逆变换的积分路径是复平面 $sigma = c$ 的一条直线]
+#note[逆变换（inverse transform）的积分路径是复平面 $sigma = c$ 的一条直线]
 
 对 LTIC 系统的 Laplace 变换，依然有
 
@@ -728,28 +728,28 @@ $
   Y(s) = F(s) H(s)
 $
 
-== 6.2 单边 Laplace
+== 6.2 单边（unilateral） Laplace
 
-双边 Laplace 时，如果不指定收敛域，逆变换不唯一。
+双边（bilateral） Laplace 时，如果不指定收敛域（region of convergence, ROC），逆变换（inverse transform）不唯一。
 
-考虑到工程实践往往只处理因果信号，因此定义单边 Laplace 变换：
+考虑到工程实践往往只处理因果（causal）信号，因此定义单边（unilateral） Laplace 变换：
 
 $
   F(s) eq.delta integral_(0^-)^infinity f(t) e^(- s t) dif t
 $
 
-逆变换的公式不变
+逆变换（inverse transform）的公式不变
 
-== 6.3 Laplace 变换的收敛性
+== 6.3 Laplace 变换的收敛（convergence）性
 
-#note[我们此处讨论的是单边变换]
+#note[我们此处讨论的是单边（unilateral）变换]
 
 $
   F(s) = & integral_(0^-)^infinity f(t) e^(- s t) dif t \
        = & integral_(0^-)^infinity [f(t) e^(- sigma t)] e^(- j omega t) dif t
 $
 
-因为 $|e^(j omega)| = 1$，其收敛性等价于
+因为 $|e^(j omega)| = 1$，其收敛（convergence）性等价于
 
 $
   integral_(0^-)^infinity |f(t) e^(- sigma t)| dif t < infinity
@@ -763,15 +763,15 @@ $
 
 #note[如 $e^(t^2)$ 是不存在 Laplace 变换的]
 
-稳定系统：收敛域包含虚轴
+稳定（stable）系统：收敛域（region of convergence, ROC）包含虚轴
 
-因果系统：收敛域为分界线的右半平面（分界线任意）
+因果（causal）系统：收敛域（region of convergence, ROC）为分界线的右半平面（分界线任意）
 
-视无穷远边极点，相当于收敛域夹在两个相邻极点之间
+视无穷远边极点（pole），相当于收敛域（region of convergence, ROC）夹在两个相邻极点（pole）之间
 
 == 6.4 与 Fourier 变换的联系
 
-若 Fourier 变换存在，则可以直接将傅里叶变换结果中的 $j omega$ 替换为 $s$
+若 Fourier 变换存在，则可以直接将傅里叶变换（Fourier transform）结果中的 $j omega$ 替换为 $s$
 
 == 6.5 有理 Laplace 函数的逆 Laplace
 
@@ -787,19 +787,19 @@ $
   X(s) = K (product_(m=1)^M (s + z_m)) / (product_(n=1)^N (s + p_n))
 $
 
-我们目标是将其分解为形如 $s^a$，$1/(s+b)$，$1/(s+c)^2$ 的线性组合，之后根据变换表得到原函数
+我们目标是将其分解为形如 $s^a$，$1/(s+b)$，$1/(s+c)^2$ 的线性（linear）组合，之后根据变换表（transform table）得到原函数
 
-1. $M < N$ 且无重复极点
+1. $M < N$ 且无重复极点（pole）
 
 $
   X = sum_(n=1)^N A_n / (s + p_n), quad A_n = [(s + p_n) X(s)]|_(s = p_n)
 $
 
-2. $M > N$，无重复极点
+2. $M > N$，无重复极点（pole）
 
 先做长除法，再转到 1。
 
-3. 有重极点
+3. 有重极点（pole）
 
 $
   1 / (s + a)^k
@@ -815,33 +815,81 @@ $
 
 Laplace 与 Fourier 有许多相似的性质，在此我们不再列出那些形式一样的性质，只列出那些有所不同的。
 
-#note[这里讨论的依然是单边 Laplace]
+1. Time reversal
 
-1. Time differentiation
+双边（bilateral）：
+
+$
+  x(-t) <=> X(-s)
+$
+
+若 $X(s)$ 的收敛域（region of convergence, ROC）为 $sigma_1 < text("Re")(s) < sigma_2$，则 $X(-s)$ 的收敛域（region of convergence, ROC）为 $-sigma_2 < text("Re")(s) < -sigma_1$。
+
+2. Time differentiation
+
+双边（bilateral）：
+
+$
+  (d x(t)) / (d t) <=> s X(s)
+$
+
+单边（unilateral）：
 
 $
   (d x(t)) / (d t) <=> s X(s) - x(0^-)
 $
 
-2. Frequency differentiation
+3. Frequency differentiation
+
+双边（bilateral）：
 
 $
   t x(t) <=> - (d X(s)) / (d s)
 $
 
-3. Time integration
+单边（unilateral）：
+
+$
+  t x(t) <=> - (d X(s)) / (d s)
+$
+
+4. Time integration
+
+双边（bilateral）：
+
+$
+  integral_(-infinity)^t x(tau) dif tau <=> X(s) / s
+$
+
+单边（unilateral）：
 
 $
   integral_(0^-)^t x(tau) dif tau <=> X(s) / s
 $
 
-4. Frequency integration
+5. Frequency integration
+
+双边（bilateral）：
 
 $
   x(t) / t <=> integral_s^infinity X(z) dif z
 $
 
-5. Frequency-convolution
+单边（unilateral）：
+
+$
+  x(t) / t <=> integral_s^infinity X(z) dif z
+$
+
+6. Frequency-convolution
+
+双边（bilateral）：
+
+$
+  x_1(t) x_2(t) <=> 1 / (2 pi j) X_1(s) * X_2(s)
+$
+
+单边（unilateral）：
 
 $
   x_1(t) x_2(t) <=> 1 / (2 pi j) X_1(s) * X_2(s)
@@ -867,7 +915,7 @@ $
 $
 
 $
-  D^2 y(t) <=> s^2 Y(s) - s y(0^-) - y^'(0^-) = s^2 Y(s) - 2 s - 1
+  D^2 y(t) <=> s^2 Y(s) - s y(0^-) - y^' (0^-) = s^2 Y(s) - 2 s - 1
 $
 
 $
@@ -892,27 +940,27 @@ $
 
 == 6.8 The transfer function
 
-在 $s$ 域下，传递函数可写成以下形式
+在 $s$ 域下，传递函数（transfer function）可写成以下形式
 
 $
   H(s) eq.delta Y(s) / F(s) = P(s) / Q(s) = (b_n s^n + b_(n-1) s^(n-1) + dots + b_1 s + b_0) / (s^n + a_(n-1) s^(n-1) + dots + a_1 s + a_0)
 $
 
-分母 = 0 是系统的特征方程
+分母 = 0 是系统的特征方程（characteristic equation）
 
 $
   Q(s) = 0 => s = p_i
 $
 
-这些 $p_i$ 是系统的极点，决定了系统的特征响应 $e^(p_i t)$
+这些 $p_i$ 是系统的极点（pole），决定了系统的特征响应 $e^(p_i t)$
 
-连续系统的稳定条件：
+连续系统的稳定（stable）条件：
 
-- 所有极点的实部 $< 0$
+- 所有极点（pole）的实部 $< 0$
 
-== 6.9 Laplace 视角下的零输入响应和零状态响应
+== 6.9 Laplace 视角下的零输入（input）响应和零状态响应
 
-在 6.7 中，把输入置 0 即得到 0 输入响应
+在 6.7 中，把输入（input）置 0 即得到 0 输入（input）响应
 
 把初始状态置 0 即得到 0 状态响应
 
@@ -920,7 +968,7 @@ $
 
 == 7.1 Frequency response of LTIC systems
 
-我们已知 LTIC 系统的频率响应可以有以下几种表示形式
+我们已知 LTIC 系统的频率响应（frequency response）可以有以下几种表示形式
 
 $
   e^(s t) => H(s) e^(s t)
@@ -978,13 +1026,13 @@ $
 
 == 7.5 Steady-state response and transient response
 
-现在我们讨论系统对于一个因果复指数信号的响应
+现在我们讨论系统对于一个因果（causal）复指数信号的响应
 
 $
   x(t) = e^(j w t) u(t) <=> X(s) = 1 / (s - j w)
 $
 
-于是输出有
+于是输出（output）有
 
 $
   Y(s) = X(s) H(s) = X(s) P(s) / Q(s) = 1 / (s - j w) dot P(s) / (product_(i = 1)^N (s - lambda_i))
@@ -1000,17 +1048,17 @@ $
   <=> y(t) = sum_(i = 1)^N A_i e^(lambda_i t) u(t) + H(j w) e^(j w t) u(t)
 $
 
-$y(t)$ 的第一项是瞬态响应，对于稳定后的系统应趋近于 0
+$y(t)$ 的第一项是瞬态响应，对于稳定（stable）后的系统应趋近于 0
 
-第二项是稳态响应。在 $t >= 0$ 时与非因果稳态响应一致
+第二项是稳态响应。在 $t >= 0$ 时与非因果（noncausal）稳态响应一致
 
 == 7.6 Effect of poles and zeros on the frequency response
 
 $
-  abs(H(j w)) = "到所有零点距离的乘积" / "到所有极点距离的乘积"
+  abs(H(j w)) = "到所有零点（zero）距离的乘积" / "到所有极点（pole）距离的乘积"
 $
 
-极点带来峰，零点带来凹
+极点（pole）带来峰，零点（zero）带来凹
 
 假设极（零）点为 $- alpha + j w_0$
 
@@ -1018,15 +1066,15 @@ $w_0$ 决定了峰位置
 
 $alpha$ 决定了峰有多尖
 
-稳定系统极点必须位于左半平面（虚轴分界）
+稳定（stable）系统极点（pole）必须位于左半平面（虚轴分界）
 
-== 7.7 使用极点和零点设计滤波器
+== 7.7 使用极点（pole）和零点（zero）设计滤波器（filter）
 
 略
 
 == 7.8 Butterworth filters
 
-$n$ 阶 Butterworth 的频率响应为
+$n$ 阶 Butterworth 的频率响应（frequency response）为
 
 $
   abs(H(j w)) = 1 / sqrt(1 + (w / w_c)^(2 n))
@@ -1036,7 +1084,7 @@ $
 
 所以 $w_c$ 又称半功率或负 3 dB 频率
 
-下文为计算方便，我们使用归一化的频率：$w / w_c -> w$
+下文为计算方便，我们使用归一化（normalization）的频率：$w / w_c -> w$
 
 $
   abs(overline(H)(j w))^2 = 1 / (1 + w^(2 n))
@@ -1048,7 +1096,7 @@ $
   abs(overline(H)(s))^2 = 1 / (1 + (s / j)^(2 n))
 $
 
-极点满足
+极点（pole）满足
 
 $
   1 + (s / j)^(2 n) = 0
@@ -1058,7 +1106,7 @@ $
   => s = e^((j pi) / (2 n) (2 k + n - 1)), quad k = 1, 2, 3, dots, 2 n
 $
 
-极点在单位圆上
+极点（pole）在单位圆上
 
 实际上，
 
@@ -1066,19 +1114,19 @@ $
   abs(overline(H)(s))^2 = overline(H)(s) overline(H)(-s)
 $
 
-所以我们前面得到的极点是关于虚轴镜像叠加后的。由于稳定系统极点只能在左半平面，所以以上结果只取左半平面的即得到 Butterworth 的极点
+所以我们前面得到的极点（pole）是关于虚轴镜像叠加后的。由于稳定（stable）系统极点（pole）只能在左半平面，所以以上结果只取左半平面的即得到 Butterworth 的极点（pole）
 
 #figure(
   image("Media/Chapter 7/Butterworth.png", width: 100%),
 )
 
-Butterworth 的系统函数为
+Butterworth 的系统函数（system function）为
 
 $
   overline(H)(s) = 1 / (s^n + a_(n-1) s^(n-1) + dots + a_1 s + 1)
 $
 
-非归一化有
+非归一化（normalization）有
 
 $
   H(s) = overline(H)(s / w_c)
@@ -1122,7 +1170,7 @@ $epsilon$ 决定波动大小，$epsilon$ 小，波动小
 
 通带内有等幅波动，但下降比 Butterworth 陡
 
-极点在椭圆上
+极点（pole）在椭圆上
 
 == 7.11 Elliptic 低通
 
@@ -1136,7 +1184,7 @@ $xi$ 是 selectivity factor
 
 通带和阻带都是等幅波动
 
-== 7.12 从低通原型设计滤波器
+== 7.12 从低通原型设计滤波器（filter）
 
 $H_p (s)$ 是低通原型
 
@@ -1174,13 +1222,13 @@ $
 
 == 9.1 离散时间信号
 
-离散时间信号可以从连续信号采样的视角得到
+离散时间信号可以从连续信号采样（sampling）的视角得到
 
 $
   x(n) = x_a (n T)
 $
 
-或者从冲激信号集合的角度得到
+或者从冲激（impulse）信号集合的角度得到
 
 $
   x(n) = sum_(k = -oo)^oo a_k delta(n - k)
@@ -1220,7 +1268,7 @@ $
   y(n) = 1 / (M_1 + M_2 + 1) sum_(k = -M_1)^(M_2) x(n - k)
 $
 
-== 9.4 线性时不变系统的卷积形式推导
+== 9.4 线性时不变（linear time-invariant, LTI）系统的卷积（convolution）形式推导
 
 $cal(H)$ 表示经过一个系统
 
@@ -1231,7 +1279,7 @@ $
        = & sum_(k = -oo)^oo x(k) h(n - k)
 $
 
-== 9.5 稳定性
+== 9.5 稳定（stable）性
 
 离散系统 BIBD 的一个充分条件是
 
@@ -1239,7 +1287,7 @@ $
   sum_(n = -oo)^oo abs(h(n)) < oo
 $
 
-== 9.6 常系数差分方程
+== 9.6 常系数差分方程（difference equation）
 
 Advance 形式
 
@@ -1248,7 +1296,7 @@ $
   = & b_M x(n + M) + b_(M - 1) x(n + M - 1) + dots + b_0 x(n)
 $
 
-因果系统的必要条件是 $M <= N$
+因果（causal）系统的必要条件是 $M <= N$
 
 在 $M = N$ 的条件下，也可以写成 Delay 形式
 
@@ -1264,7 +1312,7 @@ $
          & + b_N x(n) + b_(N - 1) x(n - 1) + dots + b_0 x(n - N)
 $
 
-需要 $N$ 个提前的输出值作为初始状态条件
+需要 $N$ 个提前的输出（output）值作为初始状态条件
 
 为简便书写，有时也使用 $E$ 算子
 
@@ -1272,11 +1320,11 @@ $
   E^k x(n) eq.delta x(n + k)
 $
 
-== 9.7 LTID 系统的零输入响应
+== 9.7 LTID 系统的零输入（input）响应
 
-离散系统的响应同样可以分为零输入响应和零状态响应
+离散系统的响应同样可以分为零输入（input）响应和零状态响应
 
-1. 零输入响应问题
+1. 零输入（input）响应问题
 
 可以转换为求解
 
@@ -1318,17 +1366,17 @@ $
               & + C_(r + 1) r_(r + 1)^n + C_(r + 2) r_(r + 2)^n + dots + C_N r_N^n
 $
 
-== 9.8 LTID 的冲激响应
+== 9.8 LTID 的冲激响应（impulse response）
 
-LTID 的冲激响应的闭式解有以下形式
+LTID 的冲激响应（impulse response）的闭式解有以下形式
 
 $
   h(n) = b_0 / a_0 delta(n) + y_N(n) u(n)
 $
 
-其中，$y_N(n)$ 是零输入响应时的模态的线性组合
+其中，$y_N(n)$ 是零输入（input）响应时的模态的线性（linear）组合
 
-用递推方式求出前 $n$ 个值后，就可以得到线性组合的系数
+用递推方式求出前 $n$ 个值后，就可以得到线性（linear）组合的系数
 
 == 9.9 LTID 的总响应
 
@@ -1336,13 +1384,13 @@ $
   "total response" = sum_(k = 1)^N C_k r_k^n + f(n) * h(n)
 $
 
-第一项是零输入响应，第二项是零状态响应
+第一项是零输入（input）响应，第二项是零状态响应
 
 = Chapter 10 Frequency domain representation
 
 == 10.1 频域表示
 
-系统的频域表示可以定义为对单位复指数输入的响应幅度
+系统的频域表示可以定义为对单位复指数输入（input）的响应幅度
 
 当 $x = e^(j w n)$ 时
 
@@ -1381,7 +1429,7 @@ $
   Theta(w) = -w n_d
 $
 
-== 10.3 离散时间傅里叶变换
+== 10.3 离散时间傅里叶变换（discrete-time Fourier transform, DTFT）
 
 $
   X(e^(j w)) = sum_(n = -oo)^oo x(n) e^(-j w n)
@@ -1391,7 +1439,7 @@ $
   x(n) = 1 / (2 pi) integral_(-pi)^pi X(e^(j w)) e^(j w n) dif w
 $
 
-跟连续时间对比可以看出，正变换从积分变成了求和，而逆变换的积分上下限变为定值。
+跟连续时间对比可以看出，正变换从积分变成了求和，而逆变换（inverse transform）的积分上下限变为定值。
 
 #note[连续的为
 
@@ -1459,25 +1507,25 @@ $
 
 = Chapter 11 Discrete Fourier transform
 
-离散时间傅里叶变换和离散傅里叶变换是两件事
+离散时间傅里叶变换（discrete-time Fourier transform, DTFT）和离散傅里叶变换（discrete Fourier transform, DFT）是两件事
 
-== 11.1 离散傅里叶变换
+== 11.1 离散傅里叶变换（discrete Fourier transform, DFT）
 
-离散傅里叶变换可以视作对离散时间傅里叶变换的采样
+离散傅里叶变换（discrete Fourier transform, DFT）可以视作对离散时间傅里叶变换（discrete-time Fourier transform, DTFT）的采样（sampling）
 
 $
   X^' (e^(j w)) = X(e^(j w)) sum_(k = -oo)^oo delta(w - (2 pi) / N k)
 $
 
-做逆变换回去
+做逆变换（inverse transform）回去
 
 $
   "DTFT"^(-1) { X^' (e^(j w)) } = N / (2 pi) sum_(p = -oo)^oo x(n - N p)
 $
 
-得到的是原函数周期延拓叠加的函数，发生了时域混叠
+得到的是原函数周期延拓叠加的函数，发生了时域混叠（aliasing）
 
-但是如果原函数只在 $N$ 点区间有值，则虽然会发生周期延拓，但不存在混叠。
+但是如果原函数只在 $N$ 点区间有值，则虽然会发生周期延拓，但不存在混叠（aliasing）。
 
 以下给出 DFT 的定义
 
@@ -1497,7 +1545,7 @@ $
   X(k)_N eq.delta X(k mod N)
 $
 
-1. 循环卷积
+1. 循环卷积（convolution）
 
 $
   sum_(l = 0)^(N - 1) x(l) h(n - l)_N <=> X(k) H(k)
@@ -1569,9 +1617,9 @@ $
 
 = Chapter 13 The z-transform
 
-== 13.1 z-变换
+== 13.1 z-变换（z-transform）
 
-z 变换的思想来源于给离散系统输入信号 $x(n) = z^n$
+z 变换（z-transform）的思想来源于给离散系统输入（input）信号 $x(n) = z^n$
 
 $
   y(n) =& sum_(k = -oo)^oo x(n - k) h(k)\
@@ -1581,7 +1629,7 @@ $
   =& z^n sum_(k = -oo)^oo h(k) z^(-k)
 $
 
-因此提取 z 变换为
+因此提取 z 变换（z-transform）为
 
 $
   H(z) = sum_(k = -oo)^oo h(k) z^(-k)
@@ -1589,7 +1637,7 @@ $
 
 DTFT 是 $z = e^(j w)$ 时的一种特殊情况
 
-z 变换同样存在收敛域问题，一般收敛域为形如
+z 变换（z-transform）同样存在收敛域（region of convergence, ROC）问题，一般收敛域（region of convergence, ROC）为形如
 
 $
   r_1 < abs(z) < r_2
@@ -1605,11 +1653,11 @@ $
   r_2 = lim_(n -> -oo) abs(x(n + 1) / x(n))
 $
 
-有些情况下，内环可能退化为零点，外环可能趋近无限，如如果收敛域包含 $r = 1$，则 DTFT 收敛
+有些情况下，内环可能退化为零点（zero），外环可能趋近无限，如如果收敛域（region of convergence, ROC）包含 $r = 1$，则 DTFT 收敛（convergence）
 
-== 13.2 有理 z 变换
+== 13.2 有理 z 变换（rational z-transform）
 
-有理 z 变换为以下形式
+有理 z 变换（rational z-transform）为以下形式
 
 $
   X(z) = N(z) / D(z)
@@ -1617,21 +1665,21 @@ $
 
 其中，$N$ 和 $D$ 都是多项式
 
-$N(z)$ 的根为系统零点，$D(z)$ 的根为系统极点。
+$N(z)$ 的根为系统零点（zero），$D(z)$ 的根为系统极点（pole）。
 
-极点决定了收敛域
+极点（pole）决定了收敛域（region of convergence, ROC）
 
-对于右侧单边序列，收敛域在模最大的极点外
+对于右侧（right-sided）单边（unilateral）序列，收敛域（region of convergence, ROC）在模最大的极点（pole）外
 
-对于左侧单边序列，收敛域在模最小的极点内
+对于左侧（left-sided）单边（unilateral）序列，收敛域（region of convergence, ROC）在模最小的极点（pole）内
 
-对于双边序列，收敛域在两个极点之间
+对于双边（bilateral）序列，收敛域（region of convergence, ROC）在两个极点（pole）之间
 
-有限长序列往往只有原点一个极点
+有限长序列往往只有原点一个极点（pole）
 
-== 13.3 z-变换的逆变换
+== 13.3 z-变换（z-transform）的逆变换（inverse transform）
 
-z 变换的逆变换的公式为
+z 变换（z-transform）的逆变换（inverse transform）的公式为
 
 $
   x(n) = 1 / (2 pi j) integral.cont_C X(z) z^(n - 1) dif z
@@ -1647,7 +1695,7 @@ $
 
 3. 幂级数展开
 
-== 13.4 z 变换的性质（部分）
+== 13.4 z 变换（z-transform）的性质（部分）
 
 1. Time reversal
 
@@ -1679,15 +1727,15 @@ $
   x^ast (n) <=> X^ast (z^ast)
 $
 
-6. 初值定理
+6. 初值定理（initial value theorem）
 
-如果 $x(n)$ 是右侧因果信号，则
+如果 $x(n)$ 是右侧（right-sided）因果（causal）信号，则
 
 $
   x(0) = lim_(z -> oo) X(z)
 $
 
-== 13.5 单边 z 变换
+== 13.5 单边（unilateral） z 变换（z-transform）
 
 定义为
 
@@ -1695,9 +1743,9 @@ $
   X_U (z) = sum_(n = 0)^oo x(n) z^(-n)
 $
 
-对于因果信号无区别。
+对于因果（causal）信号无区别。
 
-但对于非因果，有以下重要性质。
+但对于非因果（noncausal），有以下重要性质。
 
 $
   x(n - m) <=> z^(-m) X_U (z) + sum_(k = 1)^m x(k - m - 1) z^(-k + 1)
@@ -1707,7 +1755,7 @@ $
 
 = Chapter 14 An Introduction to LTI digital filters
 
-== 14.1 z-变换回顾
+== 14.1 z-变换（z-transform）回顾
 
 差分系统的一般方程为
 
@@ -1715,7 +1763,7 @@ $
   sum_(i = 0)^N a_i y(n - i) - sum_(l = 0)^M b_l x(n - l) = 0
 $
 
-由 z 变换可以转为
+由 z 变换（z-transform）可以转为
 
 $
   sum_(i = 0)^N a_i z^(-i) Y(z) - sum_(l = 0)^M b_l z^(-l) X(z) = 0
@@ -1745,7 +1793,7 @@ $
   H(z) = 1 / (sum_(i = 0)^N a_i z^(-i))
 $
 
-== 14.2 极零点分析
+== 14.2 极零点（pole-zero）分析
 
 $H(z)$ 也可以写为
 
@@ -1757,13 +1805,13 @@ $
   = H_0 z^(N - M) [(product_(i = 1)^M (z - z_i)) / (product_(i = 1)^N (z - p_i))]
 $
 
-$z_i$ 为零点，$p_i$ 为极点
+$z_i$ 为零点（zero），$p_i$ 为极点（pole）
 
-== 14.3 因果性与稳定性分析
+== 14.3 因果（causal）性与稳定（stable）性分析
 
-因果性要求 $h(n)$ 是右侧信号，ROC 在最外极点外侧
+因果（causal）性要求 $h(n)$ 是右侧（right-sided）信号，ROC 在最外极点（pole）外侧
 
-稳定性则要求 ROC 包括单位圆，也即
+稳定（stable）性则要求 ROC 包括单位圆，也即
 
 $
   sum_(n = -oo)^oo abs(h(n)) < oo
@@ -1775,21 +1823,21 @@ $
   sum_(n = -oo)^oo abs(h(n) z^(-n)) < oo " for " abs(z) = 1
 $
 
-因果性和稳定性并不等价，我们举一个例子来说明
+因果（causal）性和稳定（stable）性并不等价，我们举一个例子来说明
 
 $
   H(z) = 1 / ((1 - 1 / 2 z^(-1)) (1 - 2 z^(-1)))
 $
 
-ROC: $abs(z) > 2$，因果但不稳定
+ROC: $abs(z) > 2$，因果（causal）但不稳定（unstable）
 
-$1 / 2 < abs(z) < 2$，稳定但不因果
+$1 / 2 < abs(z) < 2$，稳定（stable）但非因果（noncausal）
 
-$abs(z) < 1 / 2$，反因果且不稳定
+$abs(z) < 1 / 2$，反因果（anticausal）且不稳定（unstable）
 
-因果性的一个必要条件是零点数不超过极点数
+因果（causal）性的一个必要条件是零点（zero）数不超过极点（pole）数
 
-如果一个系统即因果又稳定，则其极点都在单位圆里且 ROC 在单位圆外
+如果一个系统即因果（causal）又稳定（stable），则其极点（pole）都在单位圆里且 ROC 在单位圆外
 
 == 14.4 相延迟 / 群延迟
 
@@ -1809,9 +1857,9 @@ $
   D(w) = - (dif Theta(w)) / (dif w)
 $
 
-== 14.5 滤波器分类
+== 14.5 滤波器（filter）分类
 
-1. 零相位滤波器
+1. 零相位滤波器（filter）
 
 相位响应为 $0$，充要条件为实偶信号
 
@@ -1819,9 +1867,9 @@ $
   h(n) = h(-n)
 $
 
-因此因果系统不可能是零相位
+因此因果（causal）系统不可能是零相位
 
-2. 线性相位
+2. 线性（linear）相位
 
 $
   H(e^(j w)) = A(e^(j w)) e^(j (alpha w + beta))
@@ -1837,7 +1885,7 @@ $
   Theta(w) = alpha w + beta + pi " for " A(e^(j w)) < 0
 $
 
-如果一个N阶 FIR 是对称的，就会得到线性相位
+如果一个N阶 FIR 是对称的，就会得到线性（linear）相位
 
 $
   h(n) = h(N - 1 - n)
@@ -1857,9 +1905,9 @@ $
   sum_(n = -oo)^oo abs(x(n) * h_("ap")(n))^2 = sum_(n = -oo)^oo abs(x(n))^2
 $
 
-全通的零极点为呈特殊镜像关系
+全通的零极点（pole）为呈特殊镜像关系
 
-全通的系统函数有以下形式
+全通的系统函数（system function）有以下形式
 
 $
   H(z) = e^(j phi) z^(-k) (tilde(A)(z)) / A(z), quad k >= 0
@@ -1877,23 +1925,23 @@ $
   =& a_N^ast + a_(N - 1)^ast z^(-1) + dots + a_1^ast z^(-N + 1) + z^(-N)
 $
 
-对于极点 $z = p$，必存在零点 $z = 1 / p^ast$
+对于极点（pole） $z = p$，必存在零点（zero） $z = 1 / p^ast$
 
-4. 最小相位滤波器
+4. 最小相位滤波器（filter）
 
-极点和零点都严格在单位圆内
+极点（pole）和零点（zero）都严格在单位圆内
 
-因果条件下，其自身与逆系统都是稳定的
+因果（causal）条件下，其自身与逆系统都是稳定（stable）的
 
 = Chapter 15 Digital filter design
 
-== 15.1 双线性变换到 z 域
+== 15.1 双线性（linear）变换到 z 域
 
-$s$ 域的传递函数看起来与 z 域极为相似，然而，$s$ 域的基向量为 $e^(s t)$，z 域为 $z^n$，$s$ 和 z 并不等价，因此不能直接把 $s$ 替换为 z
+$s$ 域的传递函数（transfer function）看起来与 z 域极为相似，然而，$s$ 域的基向量为 $e^(s t)$，z 域为 $z^n$，$s$ 和 z 并不等价，因此不能直接把 $s$ 替换为 z
 
 频域是 $s$ 域上的虚轴，是 z 域上的单位圆
 
-需要使用双线性法进行映射转换：
+需要使用双线性（linear）法进行映射转换：
 
 $
   s = 2 / T (1 - z^(-1)) / (1 + z^(-1))
@@ -1903,19 +1951,19 @@ $
   z = (1 + T / 2 s) / (1 - T / 2 s)
 $
 
-== 15.2 冲激响应不变法
+== 15.2 冲激响应（impulse response）不变法
 
-另一种从模拟到数字的方法是冲激采样法
+另一种从模拟到数字的方法是冲激（impulse）采样（sampling）法
 
 $
   H_a (s) -> h_a (t) -> h_d (n) = h_a (n T) -> H_d (z)
 $
 
-然而这种方法会带来混叠，因此最好适用于带限系统
+然而这种方法会带来混叠（aliasing），因此最好适用于带限系统
 
 == 15.3 IIR 设计：最小二乘法
 
-用阶数低的全极点 IIR 去近似一个目标冲激响应
+用阶数低的全极点（pole） IIR 去近似一个目标冲激响应（impulse response）
 
 目标：$L$ 长 $h_d (n)$，IIR：$N$ 阶，$N << L$
 
@@ -1943,7 +1991,7 @@ $
   v(n) = delta(n)
 $
 
-考虑到 $h_d (n)$ 的因果性，显然有
+考虑到 $h_d (n)$ 的因果（causal）性，显然有
 
 $
   b_0 = h_d (0)
@@ -1965,21 +2013,21 @@ $
   r(k, i) = sum_(n = 1)^oo h_d (n - i) h_d (n - k)
 $
 
-#note[必然失去线性相位]
+#note[必然失去线性（linear）相位]
 
-== 15.4 FIR 设计：窗函数法与频率采样
+== 15.4 FIR 设计：窗函数法与频率采样（sampling）
 
-无需设计原型滤波器，直接从理想频域响应出发，转时域加窗
+无需设计原型滤波器（filter），直接从理想频域响应出发，转时域加窗
 
-另一种方法是频率采样
+另一种方法是频率采样（sampling）
 
-从理想频率响应转时域第一步是先在
+从理想频率响应（frequency response）转时域第一步是先在
 
 $
   w_k = 2 pi k / M
 $
 
-上采样，用 IDFT 得到 FIR 系数
+上采样（sampling），用 IDFT 得到 FIR 系数
 
 $
   H(k) eq.delta H_d (e^(j w)) |_w = 2 pi k / M
@@ -1989,7 +2037,7 @@ $
   h(n) = 1 / M sum_(k = 0)^(M - 1) H(k) e^(j (2 pi k n) / M), quad n = 0, dots, M - 1
 $
 
-不过要注意这种方法会造成时域上的混叠
+不过要注意这种方法会造成时域上的混叠（aliasing）
 
 $
   h(n) =& 1 / M sum_(k = 0)^(M - 1) H(k) e^(j (2 pi k n) / M)\
@@ -2042,7 +2090,7 @@ $
 
 $y(n)$ 的频谱是 $x(m)$ 的在 $x$ 轴上拉伸 $m$ 倍，再由 $2 pi$ 周期延拓，$y$ 轴缩短 $1 / m$
 
-如果 $x(m)$ 没有带限至 $pi / M$，则频域有混叠
+如果 $x(m)$ 没有带限至 $pi / M$，则频域有混叠（aliasing）
 
 时域滤波加抽取式为
 
@@ -2089,7 +2137,7 @@ $
 
 == 16.3 插值（Interpolation）
 
-尽管不会发生混叠，但上采样依然改变了频谱，因此需要对上采样的 $0$ 的位置进行插值
+尽管不会发生混叠（aliasing），但上采样（sampling）依然改变了频谱，因此需要对上采样（sampling）的 $0$ 的位置进行插值
 
 由于频谱在 $x$ 轴上被压缩 $L$ 倍，因此可以使用一个
 
@@ -2110,11 +2158,11 @@ $
   y(n) = sum_(k = -oo)^oo x(k) h_i (n - k L)
 $
 
-除了理想插值外还有线性插值、等阶保持等方法
+除了理想插值外还有线性（linear）插值、等阶保持等方法
 
-== 16.4 有理分数采样
+== 16.4 有理分数采样（sampling）
 
-如果进行有理分数 $L / M$ 的采样，流程为：
+如果进行有理分数 $L / M$ 的采样（sampling），流程为：
 
 #figure(
   image("Media/Chapter 16/Down and Up.png", width: 100%),
@@ -2253,7 +2301,7 @@ $
 
 等价条件为 $r_(x y) = mu_x mu_y$ 或 $C_(x y) = 0$
 
-3. 正交性：orthogonal
+3. 正交（orthogonal）性：orthogonal
 
 如有：
 
@@ -2263,9 +2311,9 @@ $
 
 独立 $=>$不相关，但不相关 $!=>$ 独立
 
-正交不一定不相关
+正交（orthogonal）不一定不相关
 
-两个不相关的零均值变量一定正交
+两个不相关的零均值变量一定正交（orthogonal）
 
 == 17.4 随机变量序列
 
@@ -2412,11 +2460,11 @@ $
 $
 
 $
-  C_x (e^(j w)) = sum_(k = -oo)^oo C_x (k) e^(-j w k)
+  C_x (e^(j w)) = sum_(k = -oo)^oo c_x (k) e^(-j w k)
 $
 
 $
-  C_x (k) = 1 / (2 pi) integral_(-pi)^pi C_x (e^(j w)) e^(j w k) dif w
+  c_x (k) = 1 / (2 pi) integral_(-pi)^pi C_x (e^(j w)) e^(j w k) dif w
 $
 
 并且可以注意到有：
@@ -2425,13 +2473,13 @@ $
   r_x(0) = E{ [x(n)]^2 } = 1 / (2 pi) integral_(-pi)^pi R_x (e^(j w)) dif w
 $
 
-也即平均功率
+也即平均功率。
 
 $
-  C_x(0) = sigma_x^2 = 1 / (2 pi) integral_(-pi)^pi C_x (e^(j w)) dif w
+  c_x(0) = sigma_x^2 = 1 / (2 pi) integral_(-pi)^pi C_x (e^(j w)) dif w
 $
 
-定义功率谱密度
+定义功率谱（power spectrum）密度
 
 $
   S_x (w) eq.delta R_x (e^(j w))
@@ -2439,7 +2487,7 @@ $
 
 == 17.8 WSS 与 LTI
 
-在这一节分我们探讨 WSS 经过 LTI 的输出的 $y(n)$ 的性质
+在这一节分我们探讨 WSS 经过 LTI 的输出（output）的 $y(n)$ 的性质
 
 均值：
 
@@ -2478,3 +2526,411 @@ $
 
   =& R_x(e^(j w)) abs(H(e^(j w)))^2
 $
+
+= Chapter 18: Introduction to spectral estimation
+
+谱估计（spectral estimation）主要关心如何从有限长度的随机信号数据中估计其功率谱密度（power spectral density, PSD）。
+
+== 18.1 估计量的评价指标
+
+记参数 $theta$ 的估计值为 $hat(theta)$。
+
+1. 偏差（bias）
+
+定义
+
+$
+  B(hat(theta)) = theta - E{hat(theta)}
+$
+
+若 $B(hat(theta)) = 0$，则称其为无偏（unbiased）估计；否则为有偏估计。
+
+很多估计在有限样本下是有偏的，但当样本长度 $N -> oo$ 时满足
+
+$
+  lim_(N -> oo) B(hat(theta)) = 0
+$
+
+则称其为渐近无偏（asymptotically unbiased）。
+
+2. 方差（variance）
+
+定义
+
+$
+  "var"(hat(theta)) = E{[hat(theta) - E{hat(theta)}]^2}
+$
+
+对好的估计量，我们希望当 $N -> oo$ 时
+
+$
+  lim_(N -> oo) "var"(hat(theta)) = 0
+$
+
+3. 一致性（consistency）
+
+一致性衡量当 $N -> oo$ 时，估计值是否能够收敛到真实值。
+
+常见的刻画方式有两种。
+
+依概率收敛：
+
+$
+  lim_(N -> oo) P{abs(hat(theta) - theta) > epsilon} = 0
+$
+
+均方误差（mean square error, MSE）收敛：
+
+$
+  "MSE" = lim_(N -> oo) E{[hat(theta) - theta]^2} = 0
+$
+
+并且有
+
+$
+  E{[hat(theta) - theta]^2} = "var"(hat(theta)) + [B(hat(theta))]^2
+$
+
+因此，如果一个估计量是渐近无偏的，且当 $N -> oo$ 时方差趋于 0，那么它是一致估计量。
+
+== 18.2 功率谱密度 PSD
+
+这里默认信号是宽平稳（wide-sense stationary, WSS）的。实际信号往往只在短时间内近似视为 WSS。
+
+PSD 有两种常见定义方式。
+
+1. 从自相关函数出发
+
+由 Chapter 17 可知
+
+$
+  S_x (w) eq.delta sum_(k = -oo)^oo r_x (k) e^(-j w k)
+$
+
+其中
+
+$
+  r_x(k) eq.delta E{x(n) x^ast (n - k)}
+$
+
+$S_x (w)$ 即信号的 PSD。
+
+2. 从信号本身出发
+
+$
+  S_x (w) = lim_(N -> oo) E{1 / N abs(sum_(n = 0)^(N - 1) x(n) e^(-j w n))^2}
+$
+
+也可以写为
+
+$
+  S_x (w) = lim_(N -> oo) E{1 / N abs(X_N(e^(j w)))^2}
+$
+
+其中 $X_N (e^(j w))$ 表示从原信号中截取有限长度片段后得到的 DTFT。
+
+== 18.3 周期图法（Periodogram Method）
+
+从 PSD 的第二个定义出发，若只取有限个已知数据，则可得到周期图估计
+
+$
+  hat(S)_x^(p)(w) = 1 / N abs(sum_(n = 0)^(N - 1) x(n) e^(-j w n))^2
+$
+
+
+
+== 18.4 相关图法（Correlogram Method）
+
+从 PSD 的第一个定义出发，可以先对自相关函数做有限长度估计，再对其进行离散时间傅里叶变换，得到相关图法估计
+
+$
+  hat(S)_x^(c)(w) = sum_(k = -N + 1)^(N - 1) hat(r)_x (k) e^(-j w k)
+$
+
+其中自相关函数同样需要用有限数据估计，常见的估计方式有两种。
+
+1. 无偏估计
+
+当 $k >= 0$ 时
+
+$
+  hat(r)_x^U (k) = 1 / (N - k) sum_(n = k)^(N - 1) x(n) x^ast (n - k)
+$
+
+2. 有偏估计
+
+当 $k >= 0$ 时
+
+$
+  hat(r)_x^B (k) = 1 / N sum_(n = k)^(N - 1) x(n) x^ast (n - k)
+$
+
+对于负延迟，可由共轭对称性得到
+
+$
+  hat(r)_x (-k) = hat(r)_x^ast (k)
+$
+
+若采用有偏自相关估计，则对应的相关图法结果与周期图法相同，即
+
+$
+  sum_(k = -N + 1)^(N - 1) hat(r)_x^B (k) e^(-j w k) = 1 / N abs(sum_(n = 0)^(N - 1) x(n) e^(-j w n))^2, quad forall w
+$
+
+#set page(background: context {
+  let textw = page.width - page.margin.left - page.margin.right
+  let x = page.margin.left + 0.5 * textw
+  let y = page.margin.top
+  let h = page.height - page.margin.top - page.margin.bottom
+
+  place(
+    top + left,
+    dx: x,
+    dy: y,
+    line(length: h, angle: 90deg, stroke: 0.5pt),
+  )
+})
+
+
+= Appendix A: 常用 Fourier 变换对
+
+以下给出一组常用的 Fourier 变换（Fourier transform）对。
+
+#table(
+  columns: (1.2fr, 1.35fr, 0.75fr),
+  align: (left, left, left),
+  inset: 6pt,
+  stroke: none,
+
+  table.hline(stroke: 0.6pt),
+  [*$f(t)$*], [*$F(omega)$*], [*条件*],
+  table.hline(stroke: 0.4pt),
+
+  [$e^(-a t) u(t)$], [$1 / (a + j omega)$], [$a > 0$],
+  [$e^(a t) u(-t)$], [$1 / (a - j omega)$], [$a > 0$],
+  [$e^(-a abs(t))$], [$2 a / (a^2 + omega^2)$], [$a > 0$],
+  [$t e^(-a t) u(t)$], [$1 / (a + j omega)^2$], [$a > 0$],
+  [$t^n e^(-a t) u(t)$], [$n! / (a + j omega)^(n + 1)$], [$a > 0, n in NN$],
+  [$delta(t)$], [$1$], [-],
+  [$1$], [$2 pi delta(omega)$], [-],
+  [$e^(j omega_0 t)$], [$2 pi delta(omega - omega_0)$], [-],
+  [$cos omega_0 t$], [$pi [delta(omega - omega_0) + delta(omega + omega_0)]$], [-],
+  [$sin omega_0 t$], [$j pi [delta(omega + omega_0) - delta(omega - omega_0)]$], [-],
+  [$cos(omega_0 t) u(t)$], [$pi / 2 [delta(omega - omega_0) + delta(omega + omega_0)] + (j omega) / (omega_0^2 - omega^2)$], [-],
+  [$sin(omega_0 t) u(t)$], [$pi / (2 j) [delta(omega - omega_0) - delta(omega + omega_0)] + omega_0 / (omega_0^2 - omega^2)$], [-],
+  [$e^(-a t) sin(omega_0 t) u(t)$], [$omega_0 / ((a + j omega)^2 + omega_0^2)$], [$a > 0$],
+  [$e^(-a t) cos(omega_0 t) u(t)$], [$(a + j omega) / ((a + j omega)^2 + omega_0^2)$], [$a > 0$],
+  [$text("rect")(t / tau)$], [$tau sinc(omega tau / 2)$], [-],
+  [$W / pi sinc(W t)$], [$text("rect")(omega / (2 W))$], [$tau = 2 / W$],
+  [$u(t)$], [$pi delta(omega) + 1 / (j omega)$], [-],
+  [$"sgn" t$], [$2 / (j omega)$], [-],
+  [$Delta(t / tau)$], [$tau / 2 sinc^2(omega tau / 4)$], [-],
+  [$W / (2 pi) sinc^2(W t / 2)$], [$Delta(omega / (2 W))$], [-],
+  [$sum_(n = -oo)^oo delta(t - n T)$], [$omega_0 sum_(n = -oo)^oo delta(omega - n omega_0)$], [$omega_0 = 2 pi / T$],
+  [$e^(-t^2 / (2 sigma^2))$], [$sigma sqrt(2 pi) e^(-sigma^2 omega^2 / 2)$], [-],
+
+  table.hline(stroke: 0.6pt),
+)
+
+= Appendix B: Fourier 变换性质汇总
+
+以下总结常用的 Fourier 变换性质。设
+
+$
+  f(t) <=> F(omega), quad f_1(t) <=> F_1(omega), quad f_2(t) <=> F_2(omega)
+$
+
+#table(
+  columns: (1.05fr, 1.15fr, 1.2fr),
+  align: (left, left, left),
+  inset: 6pt,
+  stroke: none,
+
+  table.hline(stroke: 0.6pt),
+  [*性质*], [*$f(t)$*], [*$F(omega)$*],
+  table.hline(stroke: 0.4pt),
+
+  [加法（addition）], [$f_1(t) + f_2(t)$], [$F_1(omega) + F_2(omega)$],
+  [数乘（scalar multiplication）], [$k f(t)$], [$k F(omega)$],
+  [对称性（symmetry）], [$F(t)$], [$2 pi f(-omega)$],
+  [时间反转（time reversal）], [$f(-t)$], [$F(-omega)$],
+  [共轭（complex conjugation）], [$f^ast (t)$], [$F^ast (-omega)$],
+  [尺度变换（scaling）], [$f(a t)$], [$1 / abs(a) F(omega / a)$],
+  [时移（time shift）], [$f(t - t_0)$], [$F(omega) e^(-j omega t_0)$],
+  [频移（frequency shift）], [$f(t) e^(j omega_0 t)$], [$F(omega - omega_0)$],
+  [时域卷积（time convolution）], [$f_1(t) * f_2(t)$], [$F_1(omega) F_2(omega)$],
+  [频域卷积（frequency convolution）], [$f_1(t) f_2(t)$], [$1 / (2 pi) F_1(omega) * F_2(omega)$],
+  [时域微分（time differentiation）], [$(dif^n f(t)) / (dif t^n)$], [$(j omega)^n F(omega)$],
+  [时域积分（time integration）], [$integral_(-infinity)^t f(tau) dif tau$], [$F(omega) / (j omega) + pi F(0) delta(omega)$],
+
+  table.hline(stroke: 0.6pt),
+)
+
+= Appendix C: 常用 Laplace 变换对
+
+以下给出一组常用的 Laplace 变换（Laplace transform）对。这里默认讨论单边（unilateral） Laplace 变换，因此时域信号多数写成与 $u(t)$ 相乘的形式。
+
+#table(
+  columns: (1.2fr, 1.35fr, 0.75fr),
+  align: (left, left, left),
+  inset: 6pt,
+  stroke: none,
+
+  table.hline(stroke: 0.6pt),
+  [*$f(t)$*], [*$F(s)$*], [*条件*],
+  table.hline(stroke: 0.4pt),
+
+  [$delta(t)$], [$1$], [-],
+  [$u(t)$], [$1 / s$], [-],
+  [$t u(t)$], [$1 / s^2$], [-],
+  [$t^n u(t)$], [$n! / s^(n + 1)$], [$n in NN$],
+  [$e^(lambda t) u(t)$], [$1 / (s - lambda)$], [-],
+  [$t e^(lambda t) u(t)$], [$1 / (s - lambda)^2$], [-],
+  [$t^n e^(lambda t) u(t)$], [$n! / (s - lambda)^(n + 1)$], [$n in NN$],
+  [$cos(b t) u(t)$], [$s / (s^2 + b^2)$], [-],
+  [$sin(b t) u(t)$], [$b / (s^2 + b^2)$], [-],
+  [$e^(-a t) cos(b t) u(t)$], [$(s + a) / ((s + a)^2 + b^2)$], [-],
+  [$e^(-a t) sin(b t) u(t)$], [$b / ((s + a)^2 + b^2)$], [-],
+  [$r e^(-a t) cos(b t + theta) u(t)$], [$((r cos theta) s + (a r cos theta - b r sin theta)) / (s^2 + 2 a s + (a^2 + b^2))$], [-],
+  [$r e^(-a t) cos(b t + theta) u(t)$], [$1 / 2 [r e^(j theta) / (s + a - j b) + r e^(-j theta) / (s + a + j b)]$], [-],
+
+  table.hline(stroke: 0.6pt),
+)
+
+对于形如
+
+$
+  (A s + B) / (s^2 + 2 a s + c)
+$
+
+的二次分母项，若令
+
+$
+  b = sqrt(c - a^2)
+$
+
+则可以写成以下等价时域形式：
+
+#table(
+  columns: (1.45fr, 1.1fr),
+  align: (left, left),
+  inset: 6pt,
+  stroke: none,
+
+  table.hline(stroke: 0.6pt),
+  [*$f(t)$*], [*$F(s)$*],
+  table.hline(stroke: 0.4pt),
+
+  [$r e^(-a t) cos(b t + theta) u(t)$], [$(A s + B) / (s^2 + 2 a s + c)$],
+  [$e^(-a t) [A cos(b t) + (B - A a) / b sin(b t)] u(t)$], [$(A s + B) / (s^2 + 2 a s + c)$],
+
+  table.hline(stroke: 0.6pt),
+)
+
+其中参数关系为
+
+$
+  r = sqrt((A^2 c + B^2 - 2 A B a) / (c - a^2))
+$
+
+$
+  theta = arctan((A a - B) / (A sqrt(c - a^2)))
+$
+
+= Appendix D: Laplace 变换性质汇总
+
+下表默认采用单边（unilateral） Laplace 变换的写法。
+
+#table(
+  columns: (1.05fr, 1.2fr, 1.35fr),
+  align: (left, left, left),
+  inset: 6pt,
+  stroke: none,
+
+  table.hline(stroke: 0.6pt),
+  [*性质*], [*$f(t)$*], [*$F(s)$*],
+  table.hline(stroke: 0.4pt),
+
+  [加法（addition）], [$f_1(t) + f_2(t)$], [$F_1(s) + F_2(s)$],
+  [数乘（scalar multiplication）], [$k f(t)$], [$k F(s)$],
+  [时间反转（time reversal）], [$f(-t)$], [$F(-s), quad "bilateral"$],
+  [时域微分（time differentiation）], [$(dif^n f(t)) / (dif t^n)$], [$s^n F(s) -\ sum_(k = 1)^n s^(n-k) f^((k - 1))(0^-)$],
+  [时域积分（time integration）], [$integral_(-infinity)^t f(tau) dif tau$], [$1 / s F(s) + 1 / s integral_(-infinity)^(0^-) f(t) dif t$],
+  [时移（time shift）], [$f(t - t_0) u(t - t_0)$], [$F(s) e^(-s t_0), quad t_0 >= 0$],
+  [频移（frequency shift）], [$f(t) e^(s_0 t)$], [$F(s - s_0)$],
+  [频域微分（frequency differentiation）], [$-t f(t)$], [$(dif F(s)) / (dif s)$],
+  [频域积分（frequency integration）], [$f(t) / t$], [$integral_s^infinity F(z) dif z$],
+  [尺度变换（scaling）], [$f(a t), quad a >= 0$], [$1 / a F(s / a)$],
+  [时域卷积（time convolution）], [$f_1(t) * f_2(t)$], [$F_1(s) F_2(s)$],
+  [频域卷积（frequency convolution）], [$f_1(t) f_2(t)$], [$1 / (2 pi j) F_1(s) * F_2(s)$],
+  [初值定理（initial value theorem）], [$f(0^+)$], [$lim_(s -> infinity) s F(s), quad (N > M)$],
+  [终值定理（final value theorem）], [$f(infinity)$], [$lim_(s -> 0) s F(s), \ ("poles of " s F(s) " in LHP")$],
+
+  table.hline(stroke: 0.6pt),
+)
+
+#note[$u(0^-) = 0$]
+
+= Appendix E: 常用 z 变换对
+
+以下给出一组常用的 z 变换（z-transform）对，并同时列出对应的收敛域（region of convergence, ROC）。
+
+#table(
+  columns: (1.15fr, 1.5fr, 0.9fr),
+  align: (left, left, left),
+  inset: 6pt,
+  stroke: none,
+
+  table.hline(stroke: 0.6pt),
+  [*$x(n)$*], [*$X(z)$*], [*收敛域*],
+  table.hline(stroke: 0.4pt),
+
+  [$delta(n)$], [$1$], [$z in CC$],
+  [$u(n)$], [$z / (z - 1)$], [$abs(z) > 1$],
+  [$(-a)^n u(n)$], [$z / (z + a)$], [$abs(z) > abs(a)$],
+  [$-(-a)^n u(-n - 1)$], [$z / (z + a)$], [$abs(z) < abs(a)$],
+  [$n u(n)$], [$z / (z - 1)^2$], [$abs(z) > 1$],
+  [$n^2 u(n)$], [$z (z + 1) / (z - 1)^3$], [$abs(z) > 1$],
+  [$e^(a n) u(n)$], [$z / (z - e^a)$], [$abs(z) > e^a$],
+  [$cos(omega n) u(n)$], [$z (z - cos omega) / (z^2 - 2 z cos omega + 1)$], [$abs(z) > 1$],
+  [$sin(omega n) u(n)$], [$z sin omega / (z^2 - 2 z cos omega + 1)$], [$abs(z) > 1$],
+  [$(1 / n) u(n - 1)$], [$ln(z / (z - 1))$], [$abs(z) > 1$],
+  [$sin(omega n + theta) u(n)$], [$(z^2 sin theta + z sin(omega - theta)) / (z^2 - 2 z cos omega + 1)$], [$abs(z) > 1$],
+  [$e^(a n) cos(omega n) u(n)$], [$(z^2 - z e^a cos omega) / (z^2 - 2 z e^a cos omega + e^(2 a))$], [$abs(z) > e^a$],
+  [$e^(a n) sin(omega n) u(n)$], [$z e^a sin omega / (z^2 - 2 z e^a cos omega + e^(2 a))$], [$abs(z) > e^a$],
+
+  table.hline(stroke: 0.6pt),
+)
+
+= Appendix F: z 变换性质汇总
+
+以下总结常用的 z 变换（z-transform）性质。设
+
+$
+  x(n) <=> X(z), quad x_1(n) <=> X_1(z), quad x_2(n) <=> X_2(z)
+$
+
+若 $X(z)$ 的收敛域（region of convergence, ROC）为 $r_1 < abs(z) < r_2$，则时间反转后的收敛域（region of convergence, ROC）变为 $1 / r_2 < abs(z) < 1 / r_1$。
+
+#table(
+  columns: (1.05fr, 1.15fr, 1.35fr),
+  align: (left, left, left),
+  inset: 6pt,
+  stroke: none,
+
+  table.hline(stroke: 0.6pt),
+  [*性质*], [*$x(n)$*], [*$X(z)$*],
+  table.hline(stroke: 0.4pt),
+
+  [加法（addition）], [$x_1(n) + x_2(n)$], [$X_1(z) + X_2(z)$],
+  [数乘（scalar multiplication）], [$k x(n)$], [$k X(z)$],
+  [时间反转（time reversal）], [$x(-n)$], [$X(z^(-1))$],
+  [时移（time shift）], [$x(n + l)$], [$z^l X(z)$],
+  [指数加权（multiplication by an exponential）], [$a^n x(n)$], [$X(z / a)$],
+  [复域微分（complex differentiation）], [$n x(n)$], [$-z (dif X(z)) / (dif z)$],
+  [共轭（complex conjugation）], [$x^ast (n)$], [$X^ast (z^ast)$],
+  [时域卷积（time convolution）], [$x_1(n) * x_2(n)$], [$X_1(z) X_2(z)$],
+  [初值定理（initial value theorem）], [$x(0)$], [$lim_(z -> oo) X(z), quad "right-sided"$],
+
+  table.hline(stroke: 0.6pt),
+)
